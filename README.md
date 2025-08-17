@@ -1,6 +1,6 @@
 ## 项目学习路径与抽象演进
 
-本项目通过 8 个 Notebook，从数值计算基础到面向对象抽象，逐步构建前馈神经网络：
+本项目通过 10个 Notebook，从数值计算基础到面向对象抽象，逐步构建前馈神经网络：
 
 1) `introduce_numpy.ipynb`：打基础（数组、索引、线代、聚合）
 2) `neurons.ipynb`：从单个神经元到小网络（向量化与维度）
@@ -10,7 +10,8 @@
 6) `classification.ipynb`：展示分类任务，发现随机权重的局限性
 7) `loss_function.ipynb`：引入损失函数，为训练优化提供目标
 8) `demand_function.ipynb`：实现需求函数，计算权重调整的方向与强度
-
+9）'final_network.py','createDataAndPlot.py':最后实现了用矩阵角度构建神经网络的全过程。**（这个可以最后看，大绝部分只用numpy实现了矩阵运算）**
+10）**'micrograd.ipynb'**:从自动微分的角度理解搭建神经网络的全过程。**（可以第一个看这个项目，其他的不适合初学者，过于麻烦）**
 ---
 
 ## 1. 数学与工具准备（`introduce_numpy.ipynb`）
@@ -331,33 +332,6 @@ print(x.grad)    # 自动获得的梯度
 | **底层计算** | 矩阵向量化 | `backpropagation.ipynb` |
 | **硬件加速** | CUDA/优化BLAS | 两者都可扩展 |
 
-### **PyTorch 的核心优势**
-1. **开发效率**：像写数学公式一样简单
-   ```python
-   # 动态网络结构
-   if condition:
-       output = model_a(x)
-   else:
-       output = model_b(x)
-   loss = criterion(output, target)
-   loss.backward()  # 自动处理分支逻辑
-   ```
-
-2. **执行效率**：自动优化为高性能矩阵运算
-   ```python
-   # 用户写的是标量逻辑，但执行时是优化的批量运算
-   # JIT编译器会将动态图编译为静态的优化图
-   ```
-
-3. **调试能力**：保留计算图信息，支持梯度检查
-   ```python
-   # 类似 micrograd 的可视化调试
-   from torchviz import make_dot
-   make_dot(loss, params=dict(model.named_parameters()))
-   ```
-
----
-
 ## **学习路径建议**
 
 ### **理解阶段**
@@ -376,4 +350,5 @@ print(x.grad)    # 自动获得的梯度
 - **框架开发**：设计自己的深度学习DSL
 
 通过本项目的两种实现，你已经掌握了现代深度学习框架的核心思想。无论是理解 PyTorch 的工作原理，还是优化深度学习模型的性能，这些基础都将是你的重要资产。
+
 
