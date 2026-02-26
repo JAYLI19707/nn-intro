@@ -6,23 +6,23 @@
 
 > 说明：仓库里的原文件名不变；右侧给出“建议编号文件名”，方便你本地按序排序查看。
 
-| 序号 | 当前文件 | 建议编号文件名 | 作用 | 优先级 |
+| 序号 | 原文件名 | 建议编号文件名 | 作用 | 优先级 |
 |---|---|---|---|---|
 | 01 | `introduce_numpy.ipynb` | `01_introduce_numpy.ipynb` | Numpy/矩阵基础 | **主要看** |
 | 02 | `neurons.ipynb` | `02_neurons.ipynb` | 单神经元到小网络 | **主要看** |
 | 03 | `layer.ipynb` | `03_layer.ipynb` | 多层前向 + `Layer` 抽象 | **主要看** |
-| 04 | `Network.ipynb` | `04_network.ipynb` | `Network` 级别封装 | **主要看** |
+| 04 | `Network.ipynb` | `04_Network.ipynb` | `Network` 级别封装 | **主要看** |
 | 05 | `softmax.ipynb` | `05_softmax.ipynb` | 多分类输出（Softmax） | **主要看** |
 | 06 | `classification.ipynb` | `06_classification.ipynb` | 分类任务与效果观察 | **主要看** |
 | 07 | `loss_function.ipynb` | `07_loss_function.ipynb` | 损失函数与训练目标 | **主要看** |
 | 08 | `demand_function.ipynb` | `08_demand_function.ipynb` | 误差信号/调整方向 | **主要看** |
-| 09 | `micrograd.ipynb` | `09_micrograd.ipynb` | 自动微分直觉（建议在 04 后看） | **补充但很推荐** |
+| 09 | `micrograd.ipynb` | `09_micrograd.ipynb` | 自动微分直觉 | **补充但很推荐** |
 | 10 | `backpropagation.ipynb` | `10_backpropagation.ipynb` | 矩阵版反向传播实现 | **补充进阶** |
 | 11 | `final_network.py` + `createDataAndPlot.py` | `11_final_network.py` + `11_createDataAndPlot.py` | 纯 numpy 完整版本 | **参考实现** |
 
 ### 哪些可以合并看（减少来回切换）
 
-- `03_layer.ipynb` + `04_network.ipynb`：**建议连着看**（从层抽象自然过渡到网络抽象）
+- `03_layer.ipynb` + `04_Network.ipynb`：**建议连着看**（从层抽象自然过渡到网络抽象）
 - `06_classification.ipynb` + `07_loss_function.ipynb` + `08_demand_function.ipynb`：**建议作为一个训练闭环一起看**
 - `09_micrograd.ipynb` + `10_backpropagation.ipynb`：**建议对照看**（自动微分思路 vs 矩阵手推梯度）
 
@@ -146,7 +146,7 @@
 
 ## 8. 损失函数与训练目标（`loss_function.ipynb`）
 
-- **解决分类问题**：针对第 6 章发现的随机权重问题，引入量化评估方法
+- **解决分类问题**：针对第 7 章发现的随机权重问题，引入量化评估方法
 - **损失函数作用**：量化模型预测与真实标签之间的差距，是训练的核心指标
 - **二分类损失设计**：
   - **One-hot 编码**：将真实标签转换为向量形式
@@ -170,7 +170,7 @@
 
 ## 9. 需求函数与梯度信号（`demand_function.ipynb`）
 
-- **从损失到调整方向**：在第 7 章建立损失函数后，进一步解决"如何根据损失调整权重"的问题
+- **从损失到调整方向**：在第 8 章建立损失函数后，进一步解决"如何根据损失调整权重"的问题
 - **需求函数（Demands Function）**：
   - **核心作用**：将损失转化为具体的权重调整需求（方向与强度）
   - **智能判断**：仅对预测错误的样本生成调整信号，预测正确时返回零向量
