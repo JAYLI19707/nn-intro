@@ -31,11 +31,7 @@ Desktop.ini
 *.temp
 *~
 
-# 输出图像和模型文件
-*.png
-*.jpg
-*.jpeg
-*.gif
+# 模型文件
 *.pkl
 *.pth
 *.h5
